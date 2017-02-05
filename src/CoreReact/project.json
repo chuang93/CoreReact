@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-CoreReact-3412badd-d739-4dfa-9ea7-1f1f8c6ec89b",
 
   "dependencies": {
@@ -37,10 +37,12 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Newtonsoft.Json": "9.0.1",
+    "React.AspNet": "3.0.0"
   },
 
   "tools": {

@@ -1,4 +1,7 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="css/playerprofiles.js" />
+/// <reference path="js/playerprofiles.js" />
+/// <reference path="js/playerprofilewebapi.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

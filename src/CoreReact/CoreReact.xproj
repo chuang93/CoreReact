@@ -14,6 +14,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
+    <ApplicationInsightsResourceId>/subscriptions/6520e6fa-8228-4912-a9d5-b3f1327ed976/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/CoreReact</ApplicationInsightsResourceId>
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />
