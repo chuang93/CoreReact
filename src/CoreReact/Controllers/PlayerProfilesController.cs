@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoreReact.Data;
 using CoreReact.Models;
+using CoreReact.Models.ModelWrappers;
 using CoreReact.Services;
 using Microsoft.AspNetCore.Http;
 
@@ -149,20 +150,20 @@ namespace CoreReact.Controllers
         {
             return _context.PlayerProfile.Any(e => e.Id == id);
         }
-
+        //CANNOT SEND PRIMITIVES LIKE STRINGS ANYMORE CAN ONLY SEND WRAPPER MODEL OBJECTS
         [HttpPost]
-        public async Task<String> UpdateAverages([FromBody ] dynamic data)
+        public async Task<String> UpdateAverages([FromBody ] LogJsonWrapper playerStatWrapper)
         {   //parse id, and player stat averages from the json String. Search for the play in the db. context and update based on averages.
-            int id = 201566;
+
+            PlayerLogStatsService statCalculatorService=new PlayerLogStatsService();
+            int id = statCalculatorService.GetPlayerStatId(playerStatWrapper);
             var playerProfile = await _context.PlayerProfile.SingleOrDefaultAsync(m => m.PlayerId == id);
             if (playerProfile == null)
             {
                 return "Nope";
             }
-            PlayerLogStatsService statCalculatorService=new PlayerLogStatsService();
-            playerProfile = statCalculatorService.CalculateAndUpdateStats(playerProfile,"hello");
-
-            _context.PlayerProfile.Update(playerProfile);
+            _context.PlayerProfile.Attach(playerProfile);
+            playerProfile = statCalculatorService.CalculateAndUpdateStats(playerProfile,playerStatWrapper);
             await _context.SaveChangesAsync();
             return "Success";
         }

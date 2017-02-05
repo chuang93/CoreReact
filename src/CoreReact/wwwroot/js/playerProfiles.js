@@ -22,17 +22,41 @@ function getPlayerGameLogAJAX(playerId, season, seasonType) {
         });
    
 }
-
-function getObjectFromAJAX(ajaxResponse) {
-    return JSON.parse(ajaxResponse.responseText);
+function PlayerLog(ajaxResponse) {
+    this.playerLogObject = ajaxResponse.responseJSON;
+    this.PlayerID = this.playerLogObject.parameters.PlayerID;
+    this.Season = this.playerLogObject.parameters.Season;
+    this.SeasonType = this.playerLogObject.parameters.SeasonType;
+    this.Resource = this.playerLogObject.resource;
+    this.Headers = this.playerLogObject.resultSets[0].headers;
+    this.RowSet = this.playerLogObject.resultSets[0].rowSet;
 }
+$("#updateStats")
+    .click(function () {
+        var playerLogJson = getPlayerGameLogAJAX("201566", "2016-17", "Regular Season")
+           .done(function (result) {
+                var playerLog = new PlayerLog(playerLogJson);
+               postJSONStringToServerAJAX("/PlayerProfiles/UpdateAverages", new PlayerLog(playerLogJson));
+               console.log(playerLog);
+               return result;
+           });
 
-function postJSONStringToServerAJAX(urlAction, playerJsonString) {
+
+    });
+
+function postJSONStringToServerAJAX(urlAction, playerLog) {
     $.ajax({
         url: urlAction,
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: playerJsonString,
+        data: JSON.stringify({
+            "PlayerID": playerLog.PlayerID,
+            "Season": playerLog.Season,
+            "SeasonType": playerLog.SeasonType,
+            "Resource": playerLog.Resource,
+            "Headers": playerLog.Headers,
+            "RowSet" : playerLog.RowSet
+        }),
         error: function(response) {
             alert(response.responseText);
         },
@@ -42,16 +66,3 @@ function postJSONStringToServerAJAX(urlAction, playerJsonString) {
 
     });
 }
-
-$("#updateStats")
-    .click(function() {
-        var playerLogJson = getPlayerGameLogAJAX("201566", "2016-17", "Regular Season")
-           .done(function (result) {
-               var playerLogString = JSON.stringify([playerLogJson]);
-                postJSONStringToServerAJAX("/PlayerProfiles/UpdateAverages", playerLogString);
-                console.log(playerLogString);
-                return result;
-            });
-
-        
-    });
