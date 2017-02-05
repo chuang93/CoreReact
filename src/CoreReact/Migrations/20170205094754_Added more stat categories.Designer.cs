@@ -8,9 +8,10 @@ using CoreReact.Data;
 namespace CoreReact.Migrations
 {
     [DbContext(typeof(PlayerProfileDbContext))]
-    partial class PlayerProfileDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170205094754_Added more stat categories")]
+    partial class Addedmorestatcategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
