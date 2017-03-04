@@ -56,13 +56,20 @@ namespace CoreReact.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PlayerId,PpgInWin,PpgInLoss,ToPgInWin,ToPgInLoss")] PlayerProfile playerProfile)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PlayerId")] PlayerProfile playerProfile)
         {
             if (ModelState.IsValid)
-            {
-                _context.Add(playerProfile);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+            {   var existingPlayerProfile= await _context.PlayerProfile.SingleOrDefaultAsync(m => m.PlayerId==playerProfile.PlayerId);
+                if (existingPlayerProfile == null)
+                {
+                    _context.Add(playerProfile);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                else
+                {   //TODO: IMPLEMENT PLAYER ALREADY EXISTS VIEW
+                    Console.WriteLine("ERROR! PLAYER ALREADY EXISTS WITH ID {0}",playerProfile.PlayerId);
+                }
             }
             return View(playerProfile);
         }
@@ -88,8 +95,9 @@ namespace CoreReact.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,PlayerId,PpgInWin,PpgInLoss,ToPgInWin,ToPgInLoss")] PlayerProfile playerProfile)
-        {
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,PlayerId,PpgInWin,PpgInLoss,ToPgInWin,ToPgInLoss,ApgInWin," +
+                                                            "ApgInLoss,RpgInWin,RpgInLoss,FgPerInWin,FgPerInLoss,ThreePerInWin,ThreePerInLoss")] PlayerProfile playerProfile)
+        { 
             if (id != playerProfile.Id)
             {
                 return NotFound();
@@ -98,7 +106,7 @@ namespace CoreReact.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                {    
                     _context.Update(playerProfile);
                     await _context.SaveChangesAsync();
                 }

@@ -1,109 +1,20 @@
+@using System.Threading.Tasks
+@using Newtonsoft.Json
 @model CoreReact.Models.PlayerProfile
 
 @{
     ViewData["Title"] = "Details";
 }
 
+
 <h2>Details</h2>
 
-<div>
-    <h4>PlayerProfile</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PlayerId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PlayerId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PpgInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PpgInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PpgInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PpgInWin)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ToPgInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ToPgInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ToPgInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ToPgInWin)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ApgInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ApgInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ApgInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ApgInWin)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RpgInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RpgInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RpgInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RpgInWin)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FgPerInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FgPerInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FgPerInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FgPerInWin)
 
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ThreePerInLoss)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ThreePerInLoss)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ThreePerInWin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ThreePerInWin)
-
-        </dd>
-    </dl>
-</div>
+<script type="text/javascript">
+     var data =@Html.Raw(JsonConvert.SerializeObject(this.Model))
+</script>
+<div id="playerReactComp"></div>
+<script src="~/js/React/playerProfileModel.jsx" asp-append-version="true"></script>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

@@ -33,7 +33,7 @@ function PlayerLog(ajaxResponse) {
 }
 $("#updateStats")
     .click(function () {
-        var playerLogJson = getPlayerGameLogAJAX("201566", "2016-17", "Regular Season")
+        var playerLogJson = getPlayerGameLogAJAX($("#playerID").val(), "2016-17", "Regular Season")
            .done(function (result) {
                 var playerLog = new PlayerLog(playerLogJson);
                postJSONStringToServerAJAX("/PlayerProfiles/UpdateAverages", new PlayerLog(playerLogJson));

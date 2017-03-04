@@ -15,7 +15,10 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+  <!---- Html.ApplicationInsightsJavaScript(TelemetryConfiguration)> --->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -47,9 +50,7 @@
         <p>&copy; 2017 - CoreReact</p>
     </footer>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -67,6 +68,7 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
     <script src="~/js/playerProfiles.js" asp-append-version="true"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

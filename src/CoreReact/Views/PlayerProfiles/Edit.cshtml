@@ -29,7 +29,7 @@
         <div class="form-group">
             <label asp-for="PlayerId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="PlayerId" class="form-control" />
+                <input id="playerID" asp-for="PlayerId" class="form-control" />
                 <span asp-validation-for="PlayerId" class="text-danger" />
             </div>
         </div>
@@ -48,6 +48,22 @@
         <input type="hidden" asp-for="ToPgInWin" />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="ToPgInLoss" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ApgInWin" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ApgInLoss" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="RpgInWin" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="RpgInLoss" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="FgPerInWin" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="FgPerInLoss" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ThreePerInWin" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ThreePerInLoss" />
     </div>
 </form>
 
