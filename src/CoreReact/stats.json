@@ -1,0 +1,17 @@
+{
+  "errors": [
+    "Entry module not found: Error: Can't resolve './src/file.js' in 'C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact'\nresolve './src/file.js' in 'C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact'\n  using description file: C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\package.json (relative path: .)\n    Field 'browser' doesn't contain a valid alias configuration\n  after using description file: C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\package.json (relative path: .)\n    using description file: C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\package.json (relative path: ./src/file.js)\n      as directory\n        C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\src\\file.js doesn't exist\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\src\\file.js doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\src\\file.js.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        C:\\Users\\Charles Huang\\Documents\\Visual Studio 2015\\Projects\\CoreReact\\src\\CoreReact\\src\\file.js.json doesn't exist"
+  ],
+  "warnings": [],
+  "version": "2.2.1",
+  "hash": "ed8034dbf0af40cc51ff",
+  "time": 44,
+  "publicPath": "",
+  "assetsByChunkName": {},
+  "assets": [],
+  "entrypoints": {},
+  "chunks": [],
+  "modules": [],
+  "filteredModules": 0,
+  "children": []
+}
