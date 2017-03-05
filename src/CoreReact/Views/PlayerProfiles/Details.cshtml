@@ -5,14 +5,12 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+<script type="text/javascript">
+     var data =@Html.Raw(JsonConvert.SerializeObject(Model))
+</script>
 
 <h2>Details</h2>
 
-
-<script type="text/javascript">
-     var data =@Html.Raw(JsonConvert.SerializeObject(this.Model))
-</script>
 <div id="playerReactComp"></div>
 <script src="~/js/React/playerProfileModel.jsx" asp-append-version="true"></script>
 <div>

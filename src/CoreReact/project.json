@@ -2,7 +2,7 @@
   "userSecretsId": "aspnet-CoreReact-3412badd-d739-4dfa-9ea7-1f1f8c6ec89b",
 
   "dependencies": {
-    "BundlerMinifier.Core": "2.3.327",
+    "BundlerMinifier.Core": "2.4.337",
     "Microsoft.ApplicationInsights.AspNetCore": "2.0.0",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",
@@ -75,7 +75,7 @@
   },
 
   "scripts": {
-    "prepublish": [ "bower install", "dotnet bundle" ],
+    "prepublish": [ "bower install", "dotnet bundle", "npm install"],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }
